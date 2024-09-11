@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Pontano+Sans:wght@300..700&display=swap');
+
+body {
+    background-image: url('/Assets/Backgrounds/Imagem-de-Fundo-Ensolarado.svg');
+    background-size: cover;      /* Faz a imagem cobrir todo o background, mantendo a proporção */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    height: 100vh;               /* Garante que o body ocupe 100% da altura da viewport */
+    margin: 0; 
+}
+

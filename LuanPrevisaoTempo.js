@@ -1,8 +1,22 @@
 
 
+const apiLocationKey = "2cdadc3ccefb45fca92bb32fe6561483";
 
-const lon=-51.2287
-const lat=-30.0277
+
+
+async function getLocation() {
+    //Pegar o nome da cidade, nome do estado e nome do país do front
+    city = `Porto%Alegre%RS%Brasil`
+    let apiLocationUrl = `https://api.geoapify.com/v1/geocode/search?text=${city}&format=json&apiKey=${apiLocationKey}`
+    const resLoc = await fetch(apiLocationUrl);
+    const dadosLoc = await resLoc.json();
+    lat = dadosLoc.results[0].lat;
+    long = dadosLoc.results[0].lon;
+
+    return [lat,long];
+}
+
+
 async function getDados(lat,lon) {
     const apiUrl=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=e1a0783237a3420634cabacb387c1461&lang=pt_br `
 
@@ -11,8 +25,10 @@ async function getDados(lat,lon) {
     return dados
 }
 async function MostraTempo() {
-        
-        const data = await getDados(lat,lon);
+        const [x,y]= await getLocation()
+        console.log(x)
+        console.log(y)
+        const data = await getDados(x,y);
         console.log(data.city.name)
         console.log(data.list[0].dt_txt)
         console.log("/////////////////////")

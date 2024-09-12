@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Goblin+One&display=swap');
 
 body {
-    background-image: url('/Assets/Backgrounds/Imagem-de-Fundo-Chuvoso.svg');
+    background-image: url('/Assets/Backgrounds/Imagem-de-Fundo-Ensolarado.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,7 +18,7 @@ body::before {
     left: 0;
     width: 100%;                  /* Largura total */
     height: 100%;                 /* Altura total */
-    background-image: url('/Assets/Backgrounds/Imagem-de-Fundo-Chuvoso.svg');
+    background-image: url('/Assets/Backgrounds/Imagem-de-Fundo-Ensolarado.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -2,7 +2,7 @@
 
 
 body {
-    background-image: url('/Assets/Backgrounds/rainingBackground.jpg');
+    background-image: url('/Assets/Backgrounds/sunnyBackground.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,7 +18,7 @@ body::before {
     left: 0;
     width: 100%;                  /* Largura total */
     height: 100%;                 /* Altura total */
-    background-image: url('/Assets/Backgrounds/rainingBackground.jpg');
+    background-image: url('/Assets/Backgrounds/sunnyBackground.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

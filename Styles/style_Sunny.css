@@ -148,7 +148,7 @@ body::before {
 
 .card p {
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Nunito';
     color: #ffffff;
     position: relative;
@@ -156,7 +156,7 @@ body::before {
 }
 
 #temperature {
-    font-size: 35px;
+    font-size: 20px;
     margin: 0;
     font-weight: bolder;
     align-items: center;

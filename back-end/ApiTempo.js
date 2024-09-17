@@ -3,17 +3,19 @@
 const apiLocationKey = "2cdadc3ccefb45fca92bb32fe6561483";
 const apiWeatherKey="e1a0783237a3420634cabacb387c1461"
 
-
+// https://api.geoapify.com/v1/geocode/search?text=${city}&format=json&apiKey=$2cdadc3ccefb45fca92bb32fe6561483
 
 async function getLocation() {
     var cidade = document.getElementById("input").value;
 
     //Pegar o nome da cidade, nome do estado e nome do país do front
-    city =  cidade.replace(' ', '%').replace(',', '%')
+    city = cidade.replaceAll(' ', '%').replaceAll(',', '%')
+    console.log(city)
     let apiLocationUrl = `https://api.geoapify.com/v1/geocode/search?text=${city}&format=json&apiKey=${apiLocationKey}`
     const resLoc = await fetch(apiLocationUrl);
     const dadosLoc = await resLoc.json();
     lat = dadosLoc.results[0].lat;
+    console.log(lat)
     long = dadosLoc.results[0].lon;
     return [lat,long];
 }

@@ -6,8 +6,10 @@ const apiWeatherKey="e1a0783237a3420634cabacb387c1461"
 
 
 async function getLocation() {
+    var cidade = document.getElementById("input").value;
+
     //Pegar o nome da cidade, nome do estado e nome do país do front
-    city = `sao%leopoldo%rs`
+    city =  cidade.replace(' ', '%').replace(',', '%')
     let apiLocationUrl = `https://api.geoapify.com/v1/geocode/search?text=${city}&format=json&apiKey=${apiLocationKey}`
     const resLoc = await fetch(apiLocationUrl);
     const dadosLoc = await resLoc.json();
@@ -61,5 +63,12 @@ async function getDadosClima() {
         
 }
 getDadosClima()
+
+document.getElementById("input").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Evita o comportamento padrão
+        getDadosClima(); // Chama a função de pesquisa
+    }
+  });
 
 

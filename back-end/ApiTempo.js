@@ -12,7 +12,7 @@ async function getLocation() {
     // Codifica a cidade para a URL
     const city = encodeURIComponent(cidade);
     let apiLocationUrl = `https://api.geoapify.com/v1/geocode/search?text=${city}&format=json&apiKey=${apiLocationKey}`;
-    
+
     try {
         const resLoc = await fetch(apiLocationUrl);
         const dadosLoc = await resLoc.json();
@@ -46,7 +46,7 @@ async function getDados(lat, lon) {
 
 async function getDadosClima() {
     const [lat, lon] = await getLocation();
-    
+
     if (lat === null || lon === null) {
         console.error("Não foi possível obter coordenadas válidas.");
         return [];
@@ -101,12 +101,12 @@ function setBackgroundImage(clima) {
         Thunderstorm: 'url("../Assets/Backgrounds/rainingBackground.jpg")',
         Drizzle: 'url("../Assets/Backgrounds/rainingBackground.jpg")',
         Fog: 'url("../Assets/Backgrounds/cloudyBackground.webp")',
-        Default: 'url("../Assets/Backgrounds/sunnyBackground.jpg")'  
+        Default: 'url("../Assets/Backgrounds/sunnyBackground.jpg")'
     };
 
     // Seleciona a imagem de acordo com a condição, ou a imagem padrão se a condição não for encontrada
     const backgroundImage = images[clima] || images['Default'];
-    
+
     // Define a imagem de fundo do corpo da página
     document.body.style.backgroundImage = backgroundImage;
 }
@@ -149,7 +149,7 @@ async function updateWeatherUI() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("input").addEventListener("keydown", function(event) {
+    document.getElementById("input").addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
             updateWeatherUI();

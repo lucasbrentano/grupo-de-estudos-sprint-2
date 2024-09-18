@@ -93,6 +93,7 @@ async function getDadosClima() {
 
 async function updateWeatherUI() {
     const dadosClimaticos = await getDadosClima();
+    console.log("hehe")
 
     if (dadosClimaticos.length > 0) {
         const currentWeather = dadosClimaticos[0];
@@ -113,6 +114,7 @@ async function updateWeatherUI() {
 document.getElementById("input").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
+        console.log("hehe22222")
         updateWeatherUI();
     }
 });

@@ -64,12 +64,17 @@ async function getDadosClima() {
         return dadosClimaticos
         
 }
+async function colocarNoHtml() {
+    let dados = await getDadosClima()
+    
+}
 getDadosClima()
 
 document.getElementById("input").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault(); // Evita o comportamento padrão
-        getDadosClima(); // Chama a função de pesquisa
+        getDadosClima();
+         // Chama a função de pesquisa
     }
   });
 

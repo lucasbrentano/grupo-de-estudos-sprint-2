@@ -113,6 +113,7 @@ function setBackgroundImage(clima) {
 
 async function updateWeatherUI() {
     const dadosClimaticos = await getDadosClima();
+    console.log("hehe")
 
     if (dadosClimaticos.length > 0) {
         const currentWeather = dadosClimaticos[0];

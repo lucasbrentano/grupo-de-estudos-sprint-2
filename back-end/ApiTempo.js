@@ -91,31 +91,70 @@ async function getDadosClima() {
     return dadosClimaticos;
 }
 
+function setBackgroundImage(clima) {
+    // Caminho relativo das imagens a partir de /back-end
+    const images = {
+        Clear: 'url("../Assets/Backgrounds/sunnyBackground.jpg")',
+        Clouds: 'url("../Assets/Backgrounds/cloudyBackground.webp")',
+        Rain: 'url("../Assets/Backgrounds/rainingBackground.jpg")',
+        Snow: 'url("../Assets/Backgrounds/snowingBackground.jpeg")',
+        Thunderstorm: 'url("../Assets/Backgrounds/rainingBackground.jpg")',
+        Drizzle: 'url("../Assets/Backgrounds/rainingBackground.jpg")',
+        Fog: 'url("../Assets/Backgrounds/cloudyBackground.webp")',
+        Default: 'url("../Assets/Backgrounds/sunnyBackground.jpg")'  
+    };
+
+    // Seleciona a imagem de acordo com a condição, ou a imagem padrão se a condição não for encontrada
+    const backgroundImage = images[clima] || images['Default'];
+    
+    // Define a imagem de fundo do corpo da página
+    document.body.style.backgroundImage = backgroundImage;
+}
+
 async function updateWeatherUI() {
     const dadosClimaticos = await getDadosClima();
 
     if (dadosClimaticos.length > 0) {
         const currentWeather = dadosClimaticos[0];
-        document.getElementById('current-temperature').innerText = `${Math.round(currentWeather.temperatura)}°C`;
-        document.getElementById('current-weather').innerText = currentWeather.clima_desc;
+        const temperatureElem = document.getElementById('current-temperature');
+        const weatherElem = document.getElementById('current-weather');
 
-        dadosClimaticos.slice(1, 6).forEach((item, index) => {
+        if (temperatureElem && weatherElem) {
+            temperatureElem.innerText = `${Math.round(currentWeather.temperatura)}°C`;
+            weatherElem.innerText = currentWeather.clima_desc;
+        } else {
+            console.error("Elementos 'current-temperature' ou 'current-weather' não encontrados.");
+        }
+
+        setBackgroundImage(currentWeather.clima);
+
+        dadosClimaticos.slice(1, 5).forEach((item, index) => {
             const cardIndex = index + 1;
-            document.getElementById(`date${cardIndex}`).innerText = item.data.split(' ')[0];
-            document.getElementById(`temperature${cardIndex}`).innerText = `${Math.round(item.temperatura)}°C`;
-            document.getElementById(`weather-icon${cardIndex}`).src = `https://openweathermap.org/img/wn/${item.icon}.png`;
+            const dateElem = document.getElementById(`date${cardIndex}`);
+            const tempElem = document.getElementById(`temperature${cardIndex}`);
+            const iconElem = document.getElementById(`weather-icon${cardIndex}`);
+
+            if (dateElem && tempElem && iconElem) {
+                dateElem.innerText = item.data.split(' ')[0];
+                tempElem.innerText = `${Math.round(item.temperatura)}°C`;
+                iconElem.src = `https://openweathermap.org/img/wn/${item.icon}.png`;
+            } else {
+                console.error(`Elementos para card ${cardIndex} não encontrados.`);
+            }
         });
     } else {
         console.error("Não há dados climáticos para atualizar.");
     }
 }
 
-document.getElementById("input").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        updateWeatherUI();
-    }
-});
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("input").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            updateWeatherUI();
+        }
+    });
 
-// Chama a função para atualizar a interface
-updateWeatherUI();
+    // Chama a função para atualizar a interface
+    updateWeatherUI();
+});

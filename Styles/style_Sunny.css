@@ -2,7 +2,7 @@
 
 
 body {
-    background-image: url('/Assets/Backgrounds/sunnyBackground.jpg');
+    background-color: rgba(58, 114, 95, 0.384);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -12,13 +12,12 @@ body {
 }
 
 body::before {
-    content: "";                  /* Necessário para criar o pseudo-elemento */
-    position: absolute;           /* Posiciona o pseudo-elemento absolutamente */
+    content: "";                  
+    position: absolute;          
     top: 0;
     left: 0;
     width: 100%;                  /* Largura total */
     height: 100%;                 /* Altura total */
-    background-image: url('/Assets/Backgrounds/sunnyBackground.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

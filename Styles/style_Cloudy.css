@@ -11,19 +11,18 @@ body {
     padding: 50px;
 }
 
-body::before {
-    content: "";                  /* Necessário para criar o pseudo-elemento */
-    position: absolute;           /* Posiciona o pseudo-elemento absolutamente */
+body::before {              
+    position: absolute;          
     top: 0;
     left: 0;
-    width: 100%;                  /* Largura total */
-    height: 100%;                 /* Altura total */
+    width: 100%;                 
+    height: 100%;                
     background-image: url('/Assets/Backgrounds/cloudyBackground.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(6px);           /* Aplica o desfoque */
-    z-index: -1;                  /* Coloca o pseudo-elemento atrás do conteúdo */
+    filter: blur(6px);          
+    z-index: -1;               
 }
 
 .moldura {
@@ -81,8 +80,8 @@ body::before {
 .search-bar input{
     font-family: 'Nunito';
     font-size: larger;
-    border: none; /* Remove a borda nativa */
-    outline: none; /* Remove a borda ao focar no campo */
+    border: none; 
+    outline: none; 
     width: 700px;
     background-color: transparent;
 }
@@ -130,8 +129,8 @@ body::before {
     flex-direction: column;
     align-items: center; 
     padding: 15px; 
-    position: relative; /* Adiciona posicionamento relativo */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra para visualização */
+    position: relative; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
 }
 
 .card .line {
@@ -143,7 +142,7 @@ body::before {
     height: 5px; 
     background-color: #ffffff;
     border-radius: 20px;
-    z-index: 1; /* Garante que a linha esteja acima de outros elementos, mas abaixo do texto */
+    z-index: 1; 
 }
 
 .card p {
@@ -152,7 +151,7 @@ body::before {
     font-family: 'Nunito';
     color: #ffffff;
     position: relative;
-    z-index: 2; /* Garante que o texto esteja acima da linha */
+    z-index: 2; 
 }
 
 #temperature {
@@ -175,15 +174,15 @@ body::before {
     height: 79.38px;
     border-radius: 30px;
     background-color: #ffffffa1;
-    display: flex; /* Adiciona display flex para centralizar a imagem */
+    display: flex; 
     align-items: center;
     justify-content: center;
     margin-top: 10px;
 }
 
 .background-icon img {
-    max-width: 100%; /* Garante que a imagem não exceda o tamanho do contêiner */
-    max-height: 100%; /* Garante que a imagem não exceda o tamanho do contêiner */
+    max-width: 100%; 
+    max-height: 100%; 
 }
 
 

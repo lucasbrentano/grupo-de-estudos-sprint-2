@@ -119,10 +119,13 @@ async function updateWeatherUI() {
         const currentWeather = dadosClimaticos[0];
         const temperatureElem = document.getElementById('current-temperature');
         const weatherElem = document.getElementById('current-weather');
+        const diaHojeElem=document.getElementById('diaHoje');
 
         if (temperatureElem && weatherElem) {
+            const dataPartes=currentWeather.data.split(' ')[0].split("-")
+            diaHojeElem.innerText = `${dataPartes[2]}/${dataPartes[1]}/${dataPartes[0]}`;
             temperatureElem.innerText = `${Math.round(currentWeather.temperatura)}°C`;
-            weatherElem.innerText = currentWeather.clima_desc;
+            weatherElem.innerText = (currentWeather.clima_desc).toUpperCase();
         } else {
             console.error("Elementos 'current-temperature' ou 'current-weather' não encontrados.");
         }
@@ -131,12 +134,15 @@ async function updateWeatherUI() {
 
         dadosClimaticos.slice(1, 5).forEach((item, index) => {
             const cardIndex = index + 1;
+            
             const dateElem = document.getElementById(`date${cardIndex}`);
             const tempElem = document.getElementById(`temperature${cardIndex}`);
             const iconElem = document.getElementById(`weather-icon${cardIndex}`);
 
             if (dateElem && tempElem && iconElem) {
-                dateElem.innerText = item.data.split(' ')[0];
+                const dataPartes=item.data.split(' ')[0].split("-")
+                // diaHojeElem.innerText = `${dataPartes[2]}/${dataPartes[1]}/${dataPartes[0]}`;
+                dateElem.innerText = `${dataPartes[2]}/${dataPartes[1]}`;
                 tempElem.innerText = `${Math.round(item.temperatura)}°C`;
                 iconElem.src = `https://openweathermap.org/img/wn/${item.icon}.png`;
             } else {

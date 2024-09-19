@@ -12,13 +12,13 @@ body {
 }
 
 body::before {
-    content: ""; /* Adiciona um conteúdo vazio para o pseudo-elemento */
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Ajuste para cobrir toda a altura da tela */
-    background: rgba(0, 0, 0, 0.5); /* Película cinza */
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
     z-index: -1;
 }
 
@@ -27,12 +27,12 @@ body::after {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Ajuste para cobrir toda a altura da tela */
+    height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     filter: blur(6px);
-    z-index: -2; /* Coloca atrás da película */
+    z-index: -2;
 }
 
 .header {
@@ -48,7 +48,7 @@ body::after {
     font-family: 'Nunito';
     color: #F7F7F7;
     font-weight: bold;
-    font-size: 3vw; /* Tamanho responsivo ajustado */
+    font-size: 3vw;
 }
 
 .search-bar {
@@ -89,6 +89,7 @@ body::after {
     font-size: 2vw;
     padding: 10px;
 }
+
 #current-temperature {
     font-weight: bold;
     color: #F7F7F7;
@@ -105,20 +106,20 @@ body::after {
     justify-content: center;
     padding: 10px;
     margin-top: 5vh;
-    margin-bottom: 20px; /* Adiciona um espaço na parte inferior */
+    margin-bottom: 20px;
     overflow-y: auto;
-    max-height: 60vh; /* Limita a altura */
+    max-height: 60vh;
 }
 
 .card {
-    width: 30%; /* Mudando para uma porcentagem */
-    max-width: 150px; /* Limite máximo para telas maiores */
-    height: auto; /* Altura automática */
-    background-color: rgba( 0, 0, 0, 0.25 );
-    background: rgba( 0, 0, 0, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
+    width: 30%;
+    max-width: 150px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: 18px;
     display: flex;
     flex-direction: column;
@@ -126,35 +127,27 @@ body::after {
     padding: 15px;
     position: relative;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* Evita que o conteúdo estoure o card */
+    overflow: hidden;
 }
-
-/* .card .line {
-    width: 100%;
-    height: 0px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    margin: 0px 0; 
-} */
 
 .card p {
     text-align: center;
-    font-size: 1.5vw; /* Tamanho responsivo ajustado */
+    font-size: 1.5vw;
     font-family: 'Nunito';
     color: #F7F7F7;
-    margin: 0; /* Remove margens */
-    padding: 5px; /* Adiciona padding para evitar que o texto fique colado */
+    margin: 0;
+    padding: 5px;
 }
 
 .background-icon {
-    width: 70px; /* Largura fixa para o ícone */
-    height: 70px; /* Altura fixa para o ícone */
+    width: 70px;
+    height: 70px;
     border-radius: 30px;
     background-color: #a0a0a0;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px 0; /* Espaço entre o ícone e o texto */
+    margin: 10px 0;
 }
 
 .background-icon img {
@@ -162,11 +155,11 @@ body::after {
     max-height: 100%;
 }
 
-/* Media Queries para telas menores */
 @media (max-width: 768px) {
+
     .header h1,
     .middle h1,
     .card p {
-        font-size: 5vw; /* Ajuste para telas menores */
+        font-size: 5vw;
     }
 }

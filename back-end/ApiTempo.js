@@ -92,7 +92,6 @@ async function getDadosClima() {
 }
 
 function setBackgroundImage(clima) {
-    // Caminho relativo das imagens a partir de /back-end
     const images = {
         Clear: 'url("../Assets/Backgrounds/sunnyBackground.jpg")',
         Clouds: 'url("../Assets/Backgrounds/cloudyBackground.webp")',
@@ -104,25 +103,22 @@ function setBackgroundImage(clima) {
         Default: 'url("../Assets/Backgrounds/sunnyBackground.jpg")'
     };
 
-    // Seleciona a imagem de acordo com a condição, ou a imagem padrão se a condição não for encontrada
     const backgroundImage = images[clima] || images['Default'];
 
-    // Define a imagem de fundo do corpo da página
     document.body.style.backgroundImage = backgroundImage;
 }
 
 async function updateWeatherUI() {
     const dadosClimaticos = await getDadosClima();
-    console.log("hehe")
 
     if (dadosClimaticos.length > 0) {
         const currentWeather = dadosClimaticos[0];
         const temperatureElem = document.getElementById('current-temperature');
         const weatherElem = document.getElementById('current-weather');
-        const diaHojeElem=document.getElementById('diaHoje');
+        const diaHojeElem = document.getElementById('diaHoje');
 
         if (temperatureElem && weatherElem) {
-            const dataPartes=currentWeather.data.split(' ')[0].split("-")
+            const dataPartes = currentWeather.data.split(' ')[0].split("-")
             diaHojeElem.innerText = `${dataPartes[2]}/${dataPartes[1]}/${dataPartes[0]}`;
             temperatureElem.innerText = `${Math.round(currentWeather.temperatura)}°C`;
             weatherElem.innerText = (currentWeather.clima_desc).toUpperCase();
@@ -134,14 +130,13 @@ async function updateWeatherUI() {
 
         dadosClimaticos.slice(1, 5).forEach((item, index) => {
             const cardIndex = index + 1;
-            
+
             const dateElem = document.getElementById(`date${cardIndex}`);
             const tempElem = document.getElementById(`temperature${cardIndex}`);
             const iconElem = document.getElementById(`weather-icon${cardIndex}`);
 
             if (dateElem && tempElem && iconElem) {
-                const dataPartes=item.data.split(' ')[0].split("-")
-                // diaHojeElem.innerText = `${dataPartes[2]}/${dataPartes[1]}/${dataPartes[0]}`;
+                const dataPartes = item.data.split(' ')[0].split("-")
                 dateElem.innerText = `${dataPartes[2]}/${dataPartes[1]}`;
                 tempElem.innerText = `${Math.round(item.temperatura)}°C`;
                 iconElem.src = `https://openweathermap.org/img/wn/${item.icon}.png`;
@@ -162,6 +157,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Chama a função para atualizar a interface
     updateWeatherUI();
 });
